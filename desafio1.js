@@ -46,9 +46,7 @@ class ProductManager {
   }
 
   createUniqueId() {
-    // npm install uuid
-    const { v4: uuidv4 } = require('uuid');
-    return uuidv4();
+    return Date.now() + Math.random().toString(36).substr(2, 9);
   }
 }
 
@@ -83,3 +81,5 @@ try {
 } catch (error) {
   console.log("Error al obtener producto por ID inexistente:", error.message);
 }
+
+console.log(productManager.addProduct("Celular Motorola","93500","img celular","6552","20"))
