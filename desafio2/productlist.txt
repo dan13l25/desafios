@@ -1,1 +1,1 @@
-[{"title":"Celular lg","description":"ultimo modelo a la venta","price":50700,"thumbnail":"Img","code":3,"id":1}]{"title":"Celular samsung","description":"modelo aantiguo pero funcional","price":30700,"thumbnail":"Img2","code":42,"id":2}]
+[{"title":"Celular lg","description":"ultimo modelo a la venta","price":50700,"thumbnail":"Img","code":3,"id":1},{"title":"Celular samsung","description":"modelo aantiguo pero funcional","price":30700,"thumbnail":"Img2","code":42,"id":2}]

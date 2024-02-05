@@ -26,9 +26,55 @@ class ProductManager {
         await fs.writeFile(this.path, JSON.stringify(this.products))
 
     }
+
+    readProducts = async () => {
+        try {
+            let dataProduct = await fs.readFile(this.path, 'utf-8');
+            return JSON.parse("Contgenido del archivo", dataProduct);
+        } catch (error) {
+            console.error("Error al leer o parsear el archivo:", error.message);
+            return [];
+        }
+    }
+
+    getProduct = async () =>{
+        let reply = await this.readProducts()
+        return await console.log(reply)
+    }
+
+    getProductById = async (id) => {
+        let getId = await this.readProducts();
+        let filter = getId.find(product => product.id === id);
+        console.log(filter);
+    }
+    
+    deleteproductById = async (id) => {
+        let erase = await this.readProducts();
+        let productFiltered = erase.filter(products => products.id != id);
+        await fs.writeFile(this.path, JSON.stringify(productFiltered));
+        console.log("producto eliminado");
+    }
+
+    updateProduct = async ({ id, ...newProductData }) => {
+    await this.deleteproductById(id); 
+    let oldProducts = await this.readProducts();
+    let modifyProduct = [{ ...newProductData, id }, ...oldProducts];
+    await fs.writeFile(this.path, JSON.stringify(modifyProduct));
+}
 }
 
 const newProduct = new ProductManager()
 
 newProduct.addProduct("Celular lg", "ultimo modelo a la venta", 50700 , "Img", 3)
 newProduct.addProduct("Celular samsung", "modelo aantiguo pero funcional", 30700 , "Img2", 42)
+
+/*newProduct.updateProduct ({
+    "title": "Celular motorola",
+    "description": "ultimo modelo a la venta",
+    "price": 50700,
+    "thumbnail": "Img",
+    "code": 3,
+    "id": 2
+})*/
+
+newProduct.getProductById(1)
