@@ -68,13 +68,6 @@ const newProduct = new ProductManager()
 newProduct.addProduct("Celular lg", "ultimo modelo a la venta", 50700 , "Img", 3)
 newProduct.addProduct("Celular samsung", "modelo aantiguo pero funcional", 30700 , "Img2", 42)
 
-/*newProduct.updateProduct ({
-    "title": "Celular motorola",
-    "description": "ultimo modelo a la venta",
-    "price": 50700,
-    "thumbnail": "Img",
-    "code": 3,
-    "id": 2
-})*/
+
 
 newProduct.getProductById(1)
